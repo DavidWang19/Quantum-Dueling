@@ -1,7 +1,7 @@
 # Quantum-Dueling
 This repository contains codes and figures to support the publication,
 
-"Quantum Dueling: An Efficient Solution for Combinatorial Optimization" Tony Tang, Haorui Wang, Zhengyang Li, Haozhan Tang, Chi Zhang and Shujin Li.
+"Quantum Dueling: An Efficient Solution for Combinatorial Optimization" Letian Tang, Haorui Wang, Zhengyang Li, Haozhan Tang, Chi Zhang and Shujin Li.
 
 ## Environment
 ### C++
