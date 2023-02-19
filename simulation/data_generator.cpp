@@ -1,5 +1,5 @@
 /**
- * @author Haorui Wang, Tony Tang
+ * @author Haorui Wang, Letian Tang
  * @brief To generate complexity data for analysis.
  */
 
@@ -14,17 +14,18 @@ dataPoint randomData[lim_N];
 void initProblem() {
     int K = ceil(double(N) / M);
     for (int i = 0; i < N; i++) {
-        randomData[i].value = i;
+        randomData[i].value = i;  // Set v(x) = x.
         randomData[i].isSolution = false;
     }
     for (int i = 0; i < N; i += K) {
-        randomData[i].isSolution = true;
+        randomData[i].isSolution = true;  // Pick M points as solutions.
     }
     int M_cnt = 0;
     for (int i = 0; i < N; i++) {
         if (randomData[i].isSolution) M_cnt++;
     }
-    if (M_cnt != M) exit(999);
+    if (M_cnt != M) exit(999);  // Ensure solution number is correct.
+
     sort(randomData, randomData + N, [](const dataPoint &a, const dataPoint &b) {
         if (a.value != b.value) return a.value < b.value;
         return a.isSolution;
@@ -37,6 +38,7 @@ int main() {
     char YN = getchar();
     while (YN != 'Y' && YN != 'N') YN = getchar();
     if (YN == 'Y') {
+        // Save the output to file.
         freopen("Complexity_data.txt", "w", stdout);
     }
     cerr << "Please input the range of n from lower to upper bound:\n";

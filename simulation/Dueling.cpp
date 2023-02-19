@@ -1,5 +1,5 @@
 /**
- * @author Haorui Wang, Tony Tang
+ * @author Haorui Wang, Letian Tang
  * @brief Implementation of central simulation of the quantum dueling algorithm.
  */
 

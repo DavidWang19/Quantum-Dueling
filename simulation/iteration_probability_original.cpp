@@ -4,9 +4,9 @@
  */
 
 #include <bits/stdc++.h>
-#define ITER_MAX 80
-#define FIRST
-#define DATA_NUMBER 1
+#define ITER_MAX 80  // Maximum iteration number.
+#define FIRST  // Focus on the results of the first register.
+#define DATA_NUMBER 1  // Choose what specific data to run.
 using namespace std;
 constexpr int n = 8, N = (1 << n), M = 16;
 struct matrix {
@@ -161,7 +161,6 @@ void init_statevector() {
  * The v[i] is a function that we wish to optimize.
  * In the end, the goal is to find a solution to the problem while minimizing the v values.
  *      We hope that it can increase the probability amplitudes of solutions with small v values.
- * This construction is only a rough investigation, not the one that would be needed in actual research.
  * find_best is a helper function to find the best solution, in this implementation, where v(x) = x, it is not required
  */
 
@@ -179,8 +178,10 @@ int find_best() {
 bool init_problem() {
     memset(isSolution, 0, sizeof(isSolution));
     srand(time(0));
-    for (int i = 0; i < N; i++) v[i] = i;
+    // Notice that the v[i] in the simulation is 0-indexed, but the v[i] in the paper is 1-indexed.
+    for (int i = 0; i < N; i++) v[i] = i;  // Set v(x) = x.
     int k = ceil(double(N)/M);
+    // Make sure that the problem is valid.
     if (M > 1 && k > double(N) / (M - 1) - 1e-10) return false;
     for (int i = 0; i < N; i++)
     #if DATA_NUMBER == 1
@@ -301,12 +302,14 @@ int main() {
         }
         last_prob = Results_all[best];
     #endif
+        // Do the next iteration.
+        // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls.
         Psi = A * Psi;
     }
 
     printf("\nFirst Max probability is achieved at the following location:\n");
-    printf("%d\n",MaxLoc);
+    printf("%d\n", MaxLoc);
     printf("\nFirst Max probability is::\n");
-    printf("%.8f\n",max_prob);
+    printf("%.8f\n", max_prob);
     return 0;
 }

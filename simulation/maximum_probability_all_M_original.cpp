@@ -4,7 +4,7 @@
  */
 
 #include <bits/stdc++.h>
-#define ITER_MAX 80
+#define ITER_MAX 80  // Maximum iteration number to limit the simulation time.
 using namespace std;
 constexpr int n = 8, N = (1 << n);
 int M = 8;
@@ -160,7 +160,6 @@ void init_statevector() {
  * The v[i] is a function that we wish to optimize.
  * In the end, the goal is to find a solution to the problem while minimizing the v values.
  *      We hope that it can increase the probability amplitudes of solutions with small v values.
- * This construction is only a rough investigation, not the one that would be needed in actual research.
  * find_best is a helper function to find the best solution, in this implementation, where v(x) = x, it is not required
  */
 
@@ -179,18 +178,19 @@ int find_best() {
 bool init_problem() {
     memset(isSolution, 0, sizeof(isSolution));
     srand(time(0));
-    for (int i = 0; i < N; i++) v[i] = i;
+    // Notice that the v[i] in the simulation is 0-indexed, but the v[i] in the paper is 1-indexed.
+    for (int i = 0; i < N; i++) v[i] = i;  // To simplify the problem, we set v(x) = x.
     int k = ceil(double(N) / M);
     if (M > 1 && k > double(N) / (M - 1) - 1e-10) return false;
     for (int i = 0; i < N; i++)
-        isSolution[i] = !((bool)(i % k));
+        isSolution[i] = !((bool)(i % k));  // Select M points as the solution.
 
     int M_cnt = 0;
     for (int i = 0; i < N; i++)
         if (isSolution[i]) M_cnt++;
-    if (M_cnt != M) exit(999);
+    if (M_cnt != M) exit(999);  // Ensure that the number of solutions is M.
 
-    best = find_best();
+    best = find_best();  // Find the best solution.
     for (int i = 0; i < N; i++) {
         sorted[i].id = i;
         sorted[i].isSol = isSolution[i];
@@ -249,6 +249,8 @@ int main() {
             }
             if (max_loc_c && max_loc_f) break;
             last_prob_c = Results_all[best];
+            // Do the next iteration.
+            // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls.
             Psi = A * Psi;
         }
         printf("%4d %8.5f %4d %8.5f %4d\n", M, max_prob_c, max_loc_c, max_prob_f, max_loc_f);

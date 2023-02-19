@@ -1,0 +1,250 @@
+Problem #1
+DEPTH: 6
+CHANGE_LIMIT: 3
+N: 32, M: 6
+
+Data Series:
+
+Iteration #1:
+G1 G1 G2 
+
+Target probability is achieved after 3 Dueling gates!
+
+
+Problem #2
+DEPTH: 8
+CHANGE_LIMIT: 4
+N: 64, M: 8
+
+Data Series:
+
+Iteration #1:
+G1 G2 G1 G1 G2 
+
+Target probability is achieved after 5 Dueling gates!
+
+
+Problem #3
+DEPTH: 12
+CHANGE_LIMIT: 3
+N: 128, M: 12
+
+Data Series:
+
+Iteration #1:
+G1 G1 G2 G1 G1 G2 G2 G2 G2 
+
+Target probability is achieved after 9 Dueling gates!
+
+
+Problem #4
+DEPTH: 10
+CHANGE_LIMIT: 8
+N: 256, M: 16
+
+Data Series:
+
+Iteration #1:
+G2 G1 G2 G1 G2 G1 G2 G1 G2 G2 
+
+Target probability is achieved after 10 Dueling gates!
+
+
+Problem #5
+DEPTH: 14
+CHANGE_LIMIT: 10
+N: 512, M: 23
+
+Data Series:
+
+Iteration #1:
+G2 G1 G2 G1 G2 G1 G2 G1 G2 G1 G2 G2 G2 G2 
+
+Target probability is achieved after 14 Dueling gates!
+
+
+Problem #6
+DEPTH: 17
+CHANGE_LIMIT: 14
+N: 1024, M: 32
+
+Data Series:
+
+Iteration #1:
+G1 G2 G1 G2 G1 G2 G1 G2 G1 G2 G1 G2 G1 G2 G1 G1 G1 
+Iteration #2:
+G2 G1 
+
+Target probability is achieved after 19 Dueling gates!
+
+
+Problem #7
+DEPTH: 13
+CHANGE_LIMIT: 10
+N: 2048, M: 46
+
+Data Series:
+
+Iteration #1:
+G1 G2 G1 G2 G1 G2 G1 G2 G1 G2 G1 G1 G1 
+Iteration #2:
+G2 G1 G2 G1 G1 G1 G2 G1 G2 G1 G1 G1 G1 
+Iteration #3:
+G1 
+
+Target probability is achieved after 27 Dueling gates!
+
+
+Problem #8
+DEPTH: 8
+CHANGE_LIMIT: 4
+N: 4096, M: 64
+
+Data Series:
+
+Iteration #1:
+G1 G1 G2 G1 G2 G1 G1 G1 
+Iteration #2:
+G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #3:
+G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #4:
+G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #5:
+G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #6:
+G2 G1 G2 G1 
+
+Target probability is achieved after 44 Dueling gates!
+
+
+Problem #9
+DEPTH: 9
+CHANGE_LIMIT: 4
+N: 8192, M: 91
+
+Data Series:
+
+Iteration #1:
+G1 G1 G2 G1 G2 G1 G1 G1 G1 
+Iteration #2:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #3:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 
+Iteration #4:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #5:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 
+Iteration #6:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 
+Iteration #7:
+G2 G1 G1 G1 G2 G1 G1 G1 G1 
+Iteration #8:
+G1 G2 G1 
+
+Target probability is achieved after 66 Dueling gates!
+
+
+Problem #10
+DEPTH: 11
+CHANGE_LIMIT: 4
+N: 16384, M: 128
+
+Data Series:
+
+Iteration #1:
+G2 G2 G2 G1 G2 G1 G2 G2 G2 G2 G2 
+Iteration #2:
+G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 G2 
+Iteration #3:
+G2 G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 
+Iteration #4:
+G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 G2 
+Iteration #5:
+G2 G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 
+Iteration #6:
+G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 G2 
+Iteration #7:
+G2 G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 
+Iteration #8:
+G1 G2 G2 G2 G1 G2 G2 G2 G2 G2 G2 
+Iteration #9:
+G2 G1 G2 G1 G2 G2 G2 G2 G2 G2 G2 
+Iteration #10:
+G1 G2 G1 G2 G2 
+
+Target probability is achieved after 104 Dueling gates!
+
+
+Problem #11
+DEPTH: 12
+CHANGE_LIMIT: 4
+N: 32768, M: 182
+
+Data Series:
+
+Iteration #1:
+G1 G1 G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 
+Iteration #2:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #3:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #4:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #5:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #6:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #7:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #8:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #9:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #10:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #11:
+G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 
+
+Target probability is achieved after 131 Dueling gates!
+
+
+Problem #12
+DEPTH: 14
+CHANGE_LIMIT: 4
+N: 65536, M: 256
+
+Data Series:
+
+Iteration #1:
+G1 G1 G1 G1 G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 
+Iteration #2:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #3:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #4:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #5:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #6:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #7:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #8:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #9:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #10:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #11:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #12:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #13:
+G2 G1 G2 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 G1 
+Iteration #14:
+G2 G1 G2 G1 G1 
+
+Target probability is achieved after 187 Dueling gates!
+
+

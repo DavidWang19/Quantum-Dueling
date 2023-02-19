@@ -1,0 +1,81 @@
+\documentclass[nofootinbib,aps,prx,amsfonts,amsmath,amssymb,superscriptaddress]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage[caption=false]{subfig}
+\usepackage{overpic}
+\usepackage{fontspec}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+\usepackage[ruled]{algorithm2e}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{wasysym}
+\usepackage{url}
+\usepackage{orcidlink}
+
+\usepackage{enumitem}
+\setlist[enumerate,1]{label={(\alph*)}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\idx}{\operatorname{idx}}
+\newcommand{\setbuilder}[2]{
+    \left\{ #1 \mathrel{\left|\vphantom{#1 #2}\right.} #2 \right\}
+}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\usepackage{tikz}
+\usetikzlibrary{quantikz,tikzmark,calc,decorations.pathreplacing,calligraphy}
+\newcommand{\Qw}{\qwbundle[alternate]{}}
+\newcommand{\GBox}{
+    \gategroup[
+        wires=2,steps=4,
+        style={dashed,rounded corners,fill=blue!20,inner xsep=12pt,inner ysep=12pt,yshift=3pt},
+        background,
+        label style={label position=below,anchor= north,yshift=-0.2cm}
+    ]{\KwSty{for} $i$ \leftarrow 1 \KwTo $p$ \KwSty{do}}
+}
+\newcommand{\GABox}{
+    \gategroup[
+        wires=2,steps=2,
+        style={dashed,rounded corners,fill=red!20,inner xsep=4pt,inner ysep=2pt,xshift=-2pt},
+        background,
+        label style={label position=above,anchor= north,yshift=0.25cm}
+    ]{Repeat $\alpha_i$ times}
+}
+\newcommand{\GBBox}{
+    \gategroup[
+        wires=2,steps=2,
+        style={dashed,rounded corners,fill=red!20,inner xsep=4pt,inner ysep=2pt,xshift=2pt},
+        background,
+        label style={label position=above,anchor= north,yshift=0.25cm}
+    ]{Repeat $\beta_i$ times}
+}
+
+\usepackage{unicode-math}
+\setmainfont{Times New Roman}
+
+\usepackage[active,tightpage]{preview}
+
+\begin{document}
+\begin{preview}
+    \begin{quantikz}
+        \lstick{$\ket{0}^{\otimes n}$} & [-4pt]\gate{H^{\otimes n}}\Qw  & [8pt]\gate[2]{O_{1\leftarrow 2}}\Qw\GBox\GABox & \gate{D}\Qw & [3pt]\gate[2]{O_{2\leftarrow 1}}\Qw\GBBox & \Qw                           & [8pt]\meter{}\Qw \\
+        \lstick{$\ket{0}^{\otimes n}$} & \gate{H^{\otimes n}}\Qw        & \Qw                                            & \Qw                                                     & \Qw                           & \gate{D}\Qw & \meter{}\Qw 
+    \end{quantikz}
+\end{preview}
+\end{document}
