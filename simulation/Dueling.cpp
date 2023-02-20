@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 #include "Dueling.h"
 
-// Target probability to achieve.
+// Target success probability to achieve.
 #define PROB_TH 0.4
 
 using namespace std;
