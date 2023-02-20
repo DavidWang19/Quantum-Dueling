@@ -1,6 +1,6 @@
 /**
  * @author Haorui Wang, Chi Zhang
- * @The original simulation code to run quantum dueling. Now a faster and neater one has been developed: Dueling.cpp. This program is aimed at providing probability information for all posible measurement results in every iteration.
+ * @brief The original simulation code to run quantum dueling. Now a faster and neater one has been developed: Dueling.cpp. This program is aimed at providing probability information for all posible measurement results in every iteration.
  */
 
 #include <bits/stdc++.h>
