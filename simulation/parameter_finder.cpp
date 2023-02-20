@@ -1,6 +1,6 @@
 /**
  * @author Haorui Wang, Letian Tang
- * @brief To find the best strategy of a set of data in quantum dueling algorithm.
+ * @brief An assistant tool to find appropriate parameters, such as CHANGE_LIMIT, for producing data in the program "data_generator.cpp".
  */
 
 #include <bits/stdc++.h>
@@ -13,6 +13,7 @@ dataPoint randomData[lim_N];
 
 void initProblem() {
     int K = ceil(double(N)/M);
+    // Notice that the v[i] in the simulation is 0-indexed, but the v[i] in the paper is 1-indexed.
     for (int i = 0; i < N; i++) {
         randomData[i].value = i;  // Set v(x) = x.
         randomData[i].isSolution = false;
@@ -33,7 +34,7 @@ void initProblem() {
     });
 }
 
-// The data texts with filenames start with Heuristics_Output are produced here.
+// No data texts are produced here. This is only an assistant tool to find appropriate parameters for other programs.
 int main() {
     cout<<"This executable helps you find parameters for Quantum Dueling, please record parameters"<<endl;
     uniform_int_distribution<int> M_dist(1, lim_M);

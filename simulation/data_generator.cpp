@@ -13,6 +13,7 @@ dataPoint randomData[lim_N];
 
 void initProblem() {
     int K = ceil(double(N) / M);
+    // Notice that the v[i] in the simulation is 0-indexed, but the v[i] in the paper is 1-indexed.
     for (int i = 0; i < N; i++) {
         randomData[i].value = i;  // Set v(x) = x.
         randomData[i].isSolution = false;
@@ -32,7 +33,7 @@ void initProblem() {
     });
 }
 
-// The data texts with filenames start with Complexity_data are produced here.
+// The data texts with filenames starting with Complexity_data are produced here.
 int main() {
     cerr << "Do you want output to file? (Y/N) \n";
     char YN = getchar();

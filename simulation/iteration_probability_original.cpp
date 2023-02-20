@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 #define ITER_MAX 80  // Maximum iteration number.
 #define FIRST  // Focus on the results of the first register.
-#define DATA_NUMBER 1  // Choose what specific data to run.
+#define DATA_NUMBER 1  // Choose what specific case to run.
 using namespace std;
 constexpr int n = 8, N = (1 << n), M = 16;
 struct matrix {
@@ -303,7 +303,7 @@ int main() {
         last_prob = Results_all[best];
     #endif
         // Do the next iteration.
-        // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls.
+        // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls. This original version has a time complexity of O(N^6) and our new one has a time complexity of O(N^4). Therefore, if you want to implement a new simulations, you can use the method providing in the program "Dueling.cpp".
         Psi = A * Psi;
     }
 

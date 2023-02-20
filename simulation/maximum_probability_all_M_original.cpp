@@ -1,6 +1,6 @@
 /**
  * @author Haorui Wang, Chi Zhang
- * @brief The original simulation code to run quantum dueling. Now a faster and neater one has been developed: Dueling.cpp. This program is aiming at finding the relationship between maximum probabilities and values of M.
+ * @brief The original simulation code to run quantum dueling. Now a faster and neater one has been developed: Dueling.cpp. This program is aiming at finding the relationship between maximum probabilities / number of iteration and values of M.
  */
 
 #include <bits/stdc++.h>
@@ -250,7 +250,7 @@ int main() {
             if (max_loc_c && max_loc_f) break;
             last_prob_c = Results_all[best];
             // Do the next iteration.
-            // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls.
+            // Notice that for these early-stage simulation programs, Gates G1 and G2 are always connected and be applied in a fixed order. However, there is no significant affect on the resuls. This original version has a time complexity of O(N^6) and our new one has a time complexity of O(N^4). Therefore, if you want to implement a new simulations, you can use the method providing in the program "Dueling.cpp".
             Psi = A * Psi;
         }
         printf("%4d %8.5f %4d %8.5f %4d\n", M, max_prob_c, max_loc_c, max_prob_f, max_loc_f);
