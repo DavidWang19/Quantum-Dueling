@@ -4,11 +4,14 @@
  */
 
 #include<bits/stdc++.h>
-#define SPECIAL_CASE 3  // Choose the specific case to run.
+// #define SPECIAL_CASE 3  // Choose the specific case to run.
 #define MANUAL_DEPTH  // Manually set the depth of the search tree.
+// #define HADAMARD_GATE // Initialize the state vectors with Hadamard gate.
+// If Hadamard gate is not used, the state vectors are initialized with random values.
+// This can be used to test the performance of the algorithm with different initial states.
 using namespace std;
 
-constexpr int n = 14, lim_N = (1 << n), lim_M = 256, DEPTH_LIMIT = 50, lim_R = 120;
+constexpr int n = 10, lim_N = (1 << n), lim_M = 200, DEPTH_LIMIT = 50, lim_R = 120;
 constexpr int PMAX[4] = {0,3,5,3};
 
 int DEPTH = 7, CHANGE_LIMIT = 5;
@@ -282,18 +285,38 @@ void printResult() {
 }
 
 void initStateVector() {
+    #ifndef HADAMARD_GATE
+        uniform_real_distribution<double> dist(0, 1);
+        float sumSqr = 0;
+    #endif
     for (int k = 1; k <= clusterNum; k++) {
         for (int l = 1; l <= clusterNum; l++) {
-            psiRef[k][l] = sqrt(N_cnt[k] * N_cnt[l]) / N;
+            #if defined(HADAMARD_GATE)
+                psiRef[k][l] = sqrt(N_cnt[k] * N_cnt[l]) / N;
+            #else
+                psiRef[k][l] = sqrt(N_cnt[k] * N_cnt[l]) * dist(mt);
+                sumSqr += sqr(psiRef[k][l]);
+            #endif
         }
     }
+    #ifndef HADAMARD_GATE
+        for (int k = 1; k <= clusterNum; k++) {
+            for (int l = 1; l <= clusterNum; l++) {
+                psiRef[k][l] /= sqrt(sumSqr);
+            }
+        }
+    #endif
 }
 
 // The data texts with filename starting with "Heuristics_Output" are produced here.
 int main() {
     cerr << "Do you want output to file? (Y/N)";
     char YN = getchar(); while (YN != 'Y' && YN != 'N') YN = getchar();
-    string fileName = "Heuristics_Output_" + to_string(SPECIAL_CASE) + ".txt";
+    #if defined(SPECIAL_CASE)
+        string fileName = "Heuristics_Output_" + to_string(SPECIAL_CASE) + ".txt";
+    #else
+        string fileName = "Heuristics_Output.txt";
+    #endif
     if (YN == 'Y') freopen(fileName.c_str(), "w", stdout);
 #ifdef MANUAL_DEPTH
     cerr<<"Please input depth:  ";
