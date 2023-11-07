@@ -13,10 +13,11 @@ using namespace std;
 
 extern int N, M, CHANGE_LIMIT, DEPTH, clusterNum;
 extern float maxProb;
-static float psi[2 * lim_M + 5][2 * lim_M + 5];
-static float psiRef[2 * lim_M + 5][2 * lim_M + 5];
+static float (*psi)[2 * lim_M + 5];
+static float (*psiRef)[2 * lim_M + 5];
 static int N_cnt[2 * lim_M + 5], P;
-static int phi[2 * lim_M + 5][2 * lim_M + 5], f[2 * lim_M + 5];
+static int (*phi)[2 * lim_M + 5];
+static int f[2 * lim_M + 5];
 static int gateArr[DEPTH_LIMIT + 1], gateBest[DEPTH_LIMIT + 1];
 static random_device rd;
 static mt19937 mt(rd());
@@ -25,6 +26,18 @@ static vector<int> sol;
 extern dataPoint randomData[lim_N];
 
 inline float sqr(float x) { return x * x; }
+
+void allocateMemory() {
+    psi = new float[2 * lim_M + 5][2 * lim_M + 5];
+    psiRef = new float[2 * lim_M + 5][2 * lim_M + 5];
+    phi = new int[2 * lim_M + 5][2 * lim_M + 5];
+}
+
+void freeMemory() {
+    delete[] psi;
+    delete[] psiRef;
+    delete[] phi;
+}
 
 // Gate G1, implementation based on equations deduced in the paper.
 void G1() {
@@ -104,7 +117,7 @@ void nextStep(int dep, int remainChange) {
 
 // Initialization of parameters used in the simulation.
 void recordParameters() {
-    memset(phi, 0, sizeof(phi));
+    memset(phi, 0, sizeof(int) * (2 * lim_M + 5) * (2 * lim_M + 5));
     memset(f, 0, sizeof(f));
     memset(N_cnt, 0, sizeof(N_cnt));
     clusterNum = 1; bool nowSolution = false;
@@ -186,6 +199,14 @@ void printResult() {
     printf("\n");
 }
 
+void printAllResult() {
+    printf("All results: ");
+    for (int i = 1; i <= clusterNum; i++) {
+        printf("%.4f %d, ", resultAll[i], f[i]);
+    }
+    printf("\n");
+}
+
 // Print the best strategies and total gates passed.
 bool printBest(int Iter, bool print_prob) {
     bool flag = true;
@@ -211,10 +232,18 @@ bool printBest(int Iter, bool print_prob) {
 }
 
 // Initialization of the state vector.
-void initStateVector() {
-    for (int k = 1; k <= clusterNum; k++) {
-        for (int l = 1; l <= clusterNum; l++) {
-            psiRef[k][l] = sqrt(N_cnt[k] * N_cnt[l]) / N;
+void initStateVector(bool useRef) {
+    if (useRef) {
+        for (int k = 1; k <= clusterNum; k++) {
+            for (int l = 1; l <= clusterNum; l++) {
+                psiRef[k][l] = sqrt(N_cnt[k] * N_cnt[l]) / N;
+            }
+        }
+    } else {
+        for (int k = 1; k <= clusterNum; k++) {
+            for (int l = 1; l <= clusterNum; l++) {
+                psi[k][l] = sqrt(N_cnt[k] * N_cnt[l]) / N;
+            }
         }
     }
 }

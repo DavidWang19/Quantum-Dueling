@@ -34,3 +34,4 @@
 # Build and vscode folder
 .vscode/
 build/
+.idea/
